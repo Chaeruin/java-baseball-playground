@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class SetTest {
@@ -44,5 +45,11 @@ public class SetTest {
         assertTrue(numbers.contains(input));
     }
 
-
+    @DisplayName("위에서 False인 경우도 확인 구현")
+    @ParameterizedTest
+    @CsvSource(value = {"1, true", "2, true", "3, true", "4, false", "5, false"})
+    void testcase6(int input, boolean expected) {
+        boolean result = numbers.contains(input);
+        assertThat(result).isEqualTo(expected);
+    }
 }
