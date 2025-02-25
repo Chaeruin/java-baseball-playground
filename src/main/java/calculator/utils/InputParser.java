@@ -10,20 +10,20 @@ public class InputParser {
     public List<Integer> parseIntegerList(String input) {
         String[] strInput = input.split("");
         List<Integer> numbers = new ArrayList<>();
-        for (String element : strInput) {
+        for (int i = 0; i < strInput.length; i+=2) {
             if (InputValidator.isOkParseToIntAndSplit(input)) {
-                numbers.add(Integer.parseInt(element));
+                numbers.add(Integer.parseInt(strInput[i]));
             }
         }
         return numbers;
     }
 
-    public List<Integer> parseOperatorList(String input) {
+    public List<String> parseOperatorList(String input) {
         String[] strInput = input.split("");
-        List<Integer> operators = new ArrayList<>();
-        for (String element : strInput) {
-            if (InputValidator.isOperator(element)) {
-                operators.add(Integer.parseInt(element));
+        List<String> operators = new ArrayList<>();
+        for (int i = 1; i < strInput.length; i+=2) {
+            if (InputValidator.isOperator(input)) {
+                operators.add(strInput[i]);
             }
         }
         return operators;

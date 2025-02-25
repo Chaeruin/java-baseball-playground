@@ -20,12 +20,34 @@ public class StringCalculatorController {
         this.calculatorService = calculatorService;
     }
 
-    void run() {
+    public void run() {
         String input = inputView.getInput();
-        int result = 0;
+        List<Integer> integers = inputParser.parseIntegerList(input);
+        List<String> operators = inputParser.parseOperatorList(input);
 
-
+        int result = calculate(integers, operators);
+        outputView.printResult(result);
     }
 
+    int calculate(List<Integer> integers, List<String> operators) {
+        int result = integers.get(0);
+        int idx = 0;
+        for (int i = 1; i < integers.size(); i++) {
+            if (operators.get(idx).equals("+")) {
+                result = calculatorService.addNum(result, integers.get(i));
+            }
+            if (operators.get(idx).equals("-")) {
+                result = calculatorService.minusNum(result, integers.get(i));
+            }
+            if (operators.get(idx).equals("*")) {
+                result = calculatorService.multNum(result, integers.get(i));
+            }
+            if (operators.get(idx).equals("/")) {
+                result = calculatorService.divNum(result, integers.get(i));
+            }
+            idx++;
+        }
+        return result;
+    }
 
 }
