@@ -1,12 +1,15 @@
 package study;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class SetTest {
     private Set<Integer> numbers;
@@ -25,4 +28,21 @@ public class SetTest {
     void testcase4() {
         assertThat(numbers.size()).isEqualTo(3);
     }
+
+    @DisplayName("Set의 contains() 메소드를 활용해 1, 2, 3의 값이 존재하는지를 확인")
+    @Test
+    void testcase5() {
+        assertThat(numbers.contains(1)).isTrue();
+        assertThat(numbers.contains(2)).isTrue();
+        assertThat(numbers.contains(3)).isTrue();
+    }
+
+    @DisplayName("ParameterizedTest 사용")
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3})
+    void testcase5_1(int input) {
+        assertTrue(numbers.contains(input));
+    }
+
+
 }
