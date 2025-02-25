@@ -27,9 +27,9 @@ ex) git checkout -b apply-feedback
 
 ### 1. 문자열 계산기
 - 기능 요구사항
- - [ ] 문자열 입력
- - [ ] 문자열 split
- - [ ] 문자열 parseInt
+ - [X] 문자열 입력
+ - [X] 문자열 split
+ - [X] 문자열 parseInt
  - [ ] 사칙 연산 진행
     - [ ] 문자열 입력 값에 따른 계산 순서 (기존 * / 우선 순위 무시)
 
