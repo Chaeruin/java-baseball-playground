@@ -8,12 +8,25 @@ import java.util.stream.Collectors;
 public class InputParser {
 
     public List<Integer> parseIntegerList(String input) {
-        List<Integer> parseList = new ArrayList<>();
-        if (InputValidator.isOkToParseAndSplit(input)) {
-            parseList = Arrays.stream(input.split(","))
-                    .map(Integer::parseInt) // Integer 변환
-                    .collect(Collectors.toList()); // 리스트로 변환
+        String[] strInput = input.split("");
+        List<Integer> numbers = new ArrayList<>();
+        for (String element : strInput) {
+            if (InputValidator.isOkParseToIntAndSplit(input)) {
+                numbers.add(Integer.parseInt(element));
+            }
         }
-        return parseList;
+        return numbers;
     }
+
+    public List<Integer> parseOperatorList(String input) {
+        String[] strInput = input.split("");
+        List<Integer> operators = new ArrayList<>();
+        for (String element : strInput) {
+            if (InputValidator.isOperator(element)) {
+                operators.add(Integer.parseInt(element));
+            }
+        }
+        return operators;
+    }
+
 }
