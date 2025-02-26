@@ -21,4 +21,17 @@ public class Numbers {
         second = random.nextInt(9) + 1;
         third = random.nextInt(9) + 1;
     }
+
+    public int getFirst() {
+        return first;
+    }
+
+    public int getSecond() {
+        return second;
+    }
+
+    public int getThird() {
+        return third;
+    }
 }
+
