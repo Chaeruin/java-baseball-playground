@@ -25,7 +25,15 @@ public class BaseBallService {
     }
 
     private int judgeStrike(Numbers computer, Numbers input) {
-        return 0;
+        int strike = 0;
+        if (computer.getFirst() == input.getFirst()) {
+            strike++;
+        } if (computer.getSecond() == input.getSecond()) {
+            strike++;
+        } if (computer.getThird() == input.getThird()) {
+            strike++;
+        }
+        return strike;
     }
 
     private int judgeBall(Numbers computer, Numbers input) {
