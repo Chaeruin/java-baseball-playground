@@ -1,6 +1,6 @@
 package baseball.domain;
 
-import java.util.Random;
+import java.util.*;
 
 public class Numbers {
 
@@ -8,7 +8,7 @@ public class Numbers {
     private int second;
     private int third;
 
-    Random random = new Random();
+
 
     public Numbers(int first, int second, int third) {
         this.first = first;
@@ -17,9 +17,17 @@ public class Numbers {
     }
 
     public void setRandomNumbers() {
-        first = random.nextInt(9) + 1;
-        second = random.nextInt(9) + 1;
-        third = random.nextInt(9) + 1;
+        Random random = new Random();
+        Set<Integer> uniqueNumbers = new HashSet<>();
+
+        while (uniqueNumbers.size() < 3) {
+            uniqueNumbers.add(random.nextInt(9) + 1);
+        }
+
+        Integer[] nums = uniqueNumbers.toArray(new Integer[0]);
+        this.first = nums[0];
+        this.second = nums[1];
+        this.third = nums[2];
     }
 
     public int getFirst() {
