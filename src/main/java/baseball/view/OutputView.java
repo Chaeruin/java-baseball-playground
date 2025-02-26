@@ -18,19 +18,19 @@ public class OutputView {
 
     private void nothing(Entry<Result, Integer> entry) {
         if (entry.getKey() == Result.NOTHING) {
-            System.out.println("낫싱");
+            System.out.print("낫싱");
         }
     }
 
     private void ball(Entry<Result, Integer> entry) {
-        if (entry.getKey() == Result.BALL) {
-            System.out.println(entry.getValue() + "볼 ");
+        if (entry.getKey() == Result.BALL && entry.getValue() != 0) {
+            System.out.print(entry.getValue() + "볼 ");
         }
     }
 
     private void strike(Entry<Result, Integer> entry) {
-        if (entry.getKey() == Result.STRIKE && entry.getValue() != 3) {
-            System.out.println(entry.getValue() + "스트라이크 ");
+        if (entry.getKey() == Result.STRIKE && entry.getValue() != 3 && entry.getValue() != 0) {
+            System.out.print(entry.getValue() + "스트라이크 ");
         }
     }
 
