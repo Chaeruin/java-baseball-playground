@@ -5,7 +5,7 @@ import baseball.domain.Numbers;
 public class InputParsing {
 
     public Numbers parseNumbers(String input) {
-        if (InputValidator.isThreeNumber(input)) {
+        if (InputValidator.isThreeNumber(input) && InputValidator.isNotDuplicate(input)) {
             String[] inputs = input.split("");
             int first = Integer.parseInt(inputs[0]);
             int second = Integer.parseInt(inputs[1]);

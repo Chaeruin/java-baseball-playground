@@ -24,4 +24,11 @@ public class InputValidator {
         return true;
     }
 
+    public static boolean isNotDuplicate(String input) {
+        int first = input.charAt(0) - '0';
+        int second = input.charAt(1) - '0';
+        int third = input.charAt(2) - '0';
+        return !(first == second || first == third || second == third);
+    }
+
 }
