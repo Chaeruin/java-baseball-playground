@@ -2,25 +2,22 @@ package baseball.service;
 
 import baseball.domain.Numbers;
 import baseball.enums.Result;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.*;
+import java.util.Map;
+
 
 public class BaseBallService {
 
-    public List<Result> judgeBaseBall(Numbers computer, Numbers input) {
-        List<Result> results = new ArrayList<>();
+    public Map<Result, Integer> judgeBaseBall(Numbers computer, Numbers input) {
+        Map<Result, Integer> results = new HashMap<>();
         int strike = judgeStrike(computer, input);
         int ball = judgeBall(computer, input);
         if (strike == 0 && ball == 0) {
-            results.add(Result.NOTHING);
+            results.put(Result.NOTHING, 1);
             return results;
         }
-
-        results.addAll(IntStream.range(0, strike).mapToObj(i -> Result.STRIKE).collect(Collectors.toList()));
-        results.addAll(IntStream.range(0, ball).mapToObj(i -> Result.BALL).collect(Collectors.toList()));
-
+        results.put(Result.STRIKE, strike);
+        results.put(Result.BALL, ball);
         return results;
     }
 
@@ -37,6 +34,14 @@ public class BaseBallService {
     }
 
     private int judgeBall(Numbers computer, Numbers input) {
-        return 0;
+        int ball = 0;
+        if (input.getFirst() == computer.getSecond() || input.getFirst() == computer.getThird()) {
+            ball++;
+        } if (input.getSecond() == computer.getFirst() || input.getSecond() == computer.getThird()) {
+            ball++;
+        } if (input.getThird() == computer.getSecond() || input.getThird() == computer.getFirst()) {
+            ball++;
+        }
+        return ball;
     }
 }
