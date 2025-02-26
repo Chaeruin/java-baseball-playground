@@ -16,7 +16,7 @@ public class Numbers {
         this.third = third;
     }
 
-    public void setRandomNumbers() {
+    public Numbers() {
         Random random = new Random();
         Set<Integer> uniqueNumbers = new HashSet<>();
 

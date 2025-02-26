@@ -2,7 +2,7 @@ package baseball.utils;
 
 import baseball.domain.Numbers;
 
-public class InputParsing {
+public class InputParser {
 
     public Numbers parseNumbers(String input) {
         if (InputValidator.isThreeNumber(input) && InputValidator.isNotDuplicate(input)) {
