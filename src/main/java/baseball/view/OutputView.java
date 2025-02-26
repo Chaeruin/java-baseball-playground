@@ -29,7 +29,7 @@ public class OutputView {
     }
 
     private void strike(Entry<Result, Integer> entry) {
-        if (entry.getKey() == Result.STRIKE) {
+        if (entry.getKey() == Result.STRIKE && entry.getValue() != 3) {
             System.out.println(entry.getValue() + "스트라이크 ");
         }
     }
