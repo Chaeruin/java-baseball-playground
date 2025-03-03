@@ -28,7 +28,10 @@ public class InputValidator {
         int first = input.charAt(0) - '0';
         int second = input.charAt(1) - '0';
         int third = input.charAt(2) - '0';
-        return !(first == second || first == third || second == third);
+        if (first == second || first == third || second == third) {
+            throw new IllegalArgumentException(ErrorMessage.INPUT_ERROR_DUPLICATE_NUMBER.getErrorMessage());
+        };
+        return true;
     }
 
 }
